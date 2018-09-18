@@ -1,0 +1,171 @@
+   0  $accept : input $end
+
+   1  input :
+   2        | input line
+
+   3  line : exp
+
+   4  exp : term
+   5      | term '+' exp
+   6      | term '-' exp
+
+   7  term : fact
+   8       | fact '*' term
+   9       | fact '/' term
+
+  10  fact : NUMERO
+  11       | MENOS NUMERO
+
+state 0
+	$accept : . input $end  (0)
+	input : .  (1)
+
+	.  reduce 1
+
+	input  goto 1
+
+
+state 1
+	$accept : input . $end  (0)
+	input : input . line  (2)
+
+	$end  accept
+	NUMERO  shift 2
+	MENOS  shift 3
+	.  error
+
+	exp  goto 4
+	fact  goto 5
+	term  goto 6
+	line  goto 7
+
+
+state 2
+	fact : NUMERO .  (10)
+
+	.  reduce 10
+
+
+state 3
+	fact : MENOS . NUMERO  (11)
+
+	NUMERO  shift 8
+	.  error
+
+
+state 4
+	line : exp .  (3)
+
+	.  reduce 3
+
+
+state 5
+	term : fact .  (7)
+	term : fact . '*' term  (8)
+	term : fact . '/' term  (9)
+
+	'*'  shift 9
+	'/'  shift 10
+	$end  reduce 7
+	NUMERO  reduce 7
+	MENOS  reduce 7
+	'+'  reduce 7
+	'-'  reduce 7
+
+
+state 6
+	exp : term .  (4)
+	exp : term . '+' exp  (5)
+	exp : term . '-' exp  (6)
+
+	'+'  shift 11
+	'-'  shift 12
+	$end  reduce 4
+	NUMERO  reduce 4
+	MENOS  reduce 4
+
+
+state 7
+	input : input line .  (2)
+
+	.  reduce 2
+
+
+state 8
+	fact : MENOS NUMERO .  (11)
+
+	.  reduce 11
+
+
+state 9
+	term : fact '*' . term  (8)
+
+	NUMERO  shift 2
+	MENOS  shift 3
+	.  error
+
+	fact  goto 5
+	term  goto 13
+
+
+state 10
+	term : fact '/' . term  (9)
+
+	NUMERO  shift 2
+	MENOS  shift 3
+	.  error
+
+	fact  goto 5
+	term  goto 14
+
+
+state 11
+	exp : term '+' . exp  (5)
+
+	NUMERO  shift 2
+	MENOS  shift 3
+	.  error
+
+	exp  goto 15
+	fact  goto 5
+	term  goto 6
+
+
+state 12
+	exp : term '-' . exp  (6)
+
+	NUMERO  shift 2
+	MENOS  shift 3
+	.  error
+
+	exp  goto 16
+	fact  goto 5
+	term  goto 6
+
+
+state 13
+	term : fact '*' term .  (8)
+
+	.  reduce 8
+
+
+state 14
+	term : fact '/' term .  (9)
+
+	.  reduce 9
+
+
+state 15
+	exp : term '+' exp .  (5)
+
+	.  reduce 5
+
+
+state 16
+	exp : term '-' exp .  (6)
+
+	.  reduce 6
+
+
+8 terminals, 6 nonterminals
+12 grammar rules, 17 states

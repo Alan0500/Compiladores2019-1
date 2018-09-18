@@ -1,0 +1,183 @@
+   0  $accept : input $end
+
+   1  input :
+   2        | input line
+
+   3  line : exp
+
+   4  exp : term
+   5      | exp '+' term
+   6      | exp '-' term
+
+   7  term : fact
+   8       | term '*' fact
+   9       | term '/' fact
+
+  10  fact : NUMERO
+  11       | MENOS NUMERO
+
+state 0
+	$accept : . input $end  (0)
+	input : .  (1)
+
+	.  reduce 1
+
+	input  goto 1
+
+
+state 1
+	$accept : input . $end  (0)
+	input : input . line  (2)
+
+	$end  accept
+	NUMERO  shift 2
+	MENOS  shift 3
+	.  error
+
+	exp  goto 4
+	fact  goto 5
+	term  goto 6
+	line  goto 7
+
+
+state 2
+	fact : NUMERO .  (10)
+
+	.  reduce 10
+
+
+state 3
+	fact : MENOS . NUMERO  (11)
+
+	NUMERO  shift 8
+	.  error
+
+
+state 4
+	line : exp .  (3)
+	exp : exp . '+' term  (5)
+	exp : exp . '-' term  (6)
+
+	'+'  shift 9
+	'-'  shift 10
+	$end  reduce 3
+	NUMERO  reduce 3
+	MENOS  reduce 3
+
+
+state 5
+	term : fact .  (7)
+
+	.  reduce 7
+
+
+state 6
+	exp : term .  (4)
+	term : term . '*' fact  (8)
+	term : term . '/' fact  (9)
+
+	'*'  shift 11
+	'/'  shift 12
+	$end  reduce 4
+	NUMERO  reduce 4
+	MENOS  reduce 4
+	'+'  reduce 4
+	'-'  reduce 4
+
+
+state 7
+	input : input line .  (2)
+
+	.  reduce 2
+
+
+state 8
+	fact : MENOS NUMERO .  (11)
+
+	.  reduce 11
+
+
+state 9
+	exp : exp '+' . term  (5)
+
+	NUMERO  shift 2
+	MENOS  shift 3
+	.  error
+
+	fact  goto 5
+	term  goto 13
+
+
+state 10
+	exp : exp '-' . term  (6)
+
+	NUMERO  shift 2
+	MENOS  shift 3
+	.  error
+
+	fact  goto 5
+	term  goto 14
+
+
+state 11
+	term : term '*' . fact  (8)
+
+	NUMERO  shift 2
+	MENOS  shift 3
+	.  error
+
+	fact  goto 15
+
+
+state 12
+	term : term '/' . fact  (9)
+
+	NUMERO  shift 2
+	MENOS  shift 3
+	.  error
+
+	fact  goto 16
+
+
+state 13
+	exp : exp '+' term .  (5)
+	term : term . '*' fact  (8)
+	term : term . '/' fact  (9)
+
+	'*'  shift 11
+	'/'  shift 12
+	$end  reduce 5
+	NUMERO  reduce 5
+	MENOS  reduce 5
+	'+'  reduce 5
+	'-'  reduce 5
+
+
+state 14
+	exp : exp '-' term .  (6)
+	term : term . '*' fact  (8)
+	term : term . '/' fact  (9)
+
+	'*'  shift 11
+	'/'  shift 12
+	$end  reduce 6
+	NUMERO  reduce 6
+	MENOS  reduce 6
+	'+'  reduce 6
+	'-'  reduce 6
+
+
+state 15
+	term : term '*' fact .  (8)
+
+	.  reduce 8
+
+
+state 16
+	term : term '/' fact .  (9)
+
+	.  reduce 9
+
+
+8 terminals, 6 nonterminals
+12 grammar rules, 17 states
