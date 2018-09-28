@@ -1,0 +1,242 @@
+No terminales inútiles en la gramática
+
+   stmt
+   compound_stmt
+   simple_stmt
+   small_stmt
+   expr_stmt
+   print_stmt
+   if_stmt
+   while_stmt
+   suite
+   test
+   or_test
+   and_test
+   not_test
+   comparison
+   comp_op
+   expr
+   term
+   factor
+   power
+   atom
+
+
+Terminales no usados en la gramática
+
+   NUMERO
+   TRUE
+   FALSE
+   AND
+   FROM
+   ENTERO
+   REAL
+   INDENTA
+   DEINDENTA
+   ELIF
+   OR
+   IF
+   PRINT
+   RETURN
+   MAS
+   MENOS
+   MULT
+   DIV
+   EXP
+   MOD
+   MAYOR
+   MENOR
+   NOT
+   WHILE
+   FOR
+   ELSE
+   CADENA
+   MAYORIG
+   MENOSIG
+   IGUAL
+   DIST
+   MASIG
+   MENORIG
+   IGUALIG
+   PARIZQ
+   PARDER
+   DOSPUNTOS
+   PUNTOCOMA
+   IDENTIFICADOR
+
+
+Reglas inútiles en la gramática
+
+    3 file_input: stmt file_input
+
+    4 stmt: compound_stmt
+    5     | simple_stmt
+
+    6 compound_stmt: if_stmt
+    7              | while_stmt
+
+    8 simple_stmt: small_stmt SALTO
+
+    9 small_stmt: expr_stmt
+   10           | print_stmt
+
+   11 expr_stmt: test
+   12          | test IGUAL test
+
+   13 print_stmt: PRINT test
+
+   14 if_stmt: IF test DOSPUNTOS suite
+
+   15 while_stmt: WHILE test DOSPUNTOS suite
+
+   16 suite: SALTO INDENTA stmt DEINDENTA
+   17      | SALTO INDENTA suite DEINDENTA
+   18      | simple_stmt
+
+   19 test: or_test
+
+   20 or_test: and_test OR or_test
+
+   21 and_test: not_test AND and_test
+
+   22 not_test: NOT not_test
+   23         | comparison
+
+   24 comparison: expr
+   25           | expr comp_op expr
+
+   26 comp_op: MENOR
+   27        | MAYOR
+   28        | IGUALIG
+   29        | MAYORIG
+   30        | MENORIG
+   31        | DIST
+
+   32 expr: term
+   33     | term MAS expr
+   34     | term MENOS expr
+
+   35 term: factor
+   36     | factor MULT term
+   37     | factor DIV term
+   38     | factor MOD term
+
+   39 factor: MAS factor
+   40       | MENOS factor
+   41       | power
+
+   42 power: atom
+   43      | atom EXP factor
+
+   44 atom: IDENTIFICADOR
+   45     | ENTERO
+   46     | CADENA
+   47     | REAL
+   48     | TRUE
+   49     | FALSE
+   50     | PARIZQ test PARDER
+
+
+Gramática
+
+    0 $accept: file_input $end
+
+    1 file_input: %empty
+    2           | SALTO file_input
+
+
+Terminales con las reglas donde aparecen
+
+$end (0) 0
+error (256)
+NUMERO (258)
+TRUE (259)
+FALSE (260)
+SALTO (261) 2
+AND (262)
+FROM (263)
+ENTERO (264)
+REAL (265)
+INDENTA (266)
+DEINDENTA (267)
+ELIF (268)
+OR (269)
+IF (270)
+PRINT (271)
+RETURN (272)
+MAS (273)
+MENOS (274)
+MULT (275)
+DIV (276)
+EXP (277)
+MOD (278)
+MAYOR (279)
+MENOR (280)
+NOT (281)
+WHILE (282)
+FOR (283)
+ELSE (284)
+CADENA (285)
+MAYORIG (286)
+MENOSIG (287)
+IGUAL (288)
+DIST (289)
+MASIG (290)
+MENORIG (291)
+IGUALIG (292)
+PARIZQ (293)
+PARDER (294)
+DOSPUNTOS (295)
+PUNTOCOMA (296)
+IDENTIFICADOR (297)
+
+
+No terminales con las reglas donde aparecen
+
+$accept (43)
+    en la izquierda: 0
+file_input (44)
+    en la izquierda: 1 2, en la derecha: 0 2
+
+
+Estado 0
+
+    0 $accept: . file_input $end
+
+    SALTO  desplazar e ir al estado 1
+
+    $default  reduce usando la regla 1 (file_input)
+
+    file_input  ir al estado 2
+
+
+Estado 1
+
+    2 file_input: SALTO . file_input
+
+    SALTO  desplazar e ir al estado 1
+
+    $default  reduce usando la regla 1 (file_input)
+
+    file_input  ir al estado 3
+
+
+Estado 2
+
+    0 $accept: file_input . $end
+
+    $end  desplazar e ir al estado 4
+
+
+Estado 3
+
+    2 file_input: SALTO file_input .
+
+    $default  reduce usando la regla 2 (file_input)
+
+
+Estado 4
+
+    0 $accept: file_input $end .
+
+    $default  aceptar
