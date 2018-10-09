@@ -119,7 +119,7 @@ FALSE               = "False"
   {REAL}                              {System.out.println(yytext()+ "\n"); return Parser.REAL; }
   {TRUE}                 		          {System.out.println(yytext()+ "\n"); return Parser.TRUE ;}  
   {FALSE}             			          {System.out.println(yytext()+ "\n"); return Parser.FALSE ; }
-  {AND }                              {System.out.println(yytext()+ "\n");return Parser.AND;}                  
+  {AND}                               {System.out.println(yytext()+ "\n");return Parser.AND;}                  
   {FROM}                              {System.out.println(yytext()+ "\n");return Parser.FROM;}
   {NOT }                              {System.out.println(yytext()+ "\n");return Parser.NOT ;}
   {WHILE }                            {System.out.println(yytext()+ "\n");return Parser.WHILE ;}

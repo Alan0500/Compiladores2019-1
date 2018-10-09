@@ -67,11 +67,13 @@ test : or_test {dump_stacks(stateptr);}
     ;
 
 /* or_test: and_test ('or' and_test)* */
-or_test : and_test OR or_test {dump_stacks(stateptr);}
+or_test : and_test {dump_stacks(stateptr);}
+    | and_test OR or_test
     ;
 
 /* and_test: not_test ('and' not_test)* */
-and_test : not_test AND and_test {dump_stacks(stateptr);}
+and_test : not_test
+    | not_test AND and_test {dump_stacks(stateptr);}
     ;
 /* not_test: 'not' not_test | comparison */
 not_test: NOT not_test  {dump_stacks(stateptr);}
