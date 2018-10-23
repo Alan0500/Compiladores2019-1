@@ -8,13 +8,18 @@
 /home/stein/Documentos/Semestres/Semestre2019-1/Compiladores/Compiladores2019-1/Proyectos/ProyectoTemporal/Proyecto3/src/main/java/ast/patron/compuesto/IgualNodo.java
 /home/stein/Documentos/Semestres/Semestre2019-1/Compiladores/Compiladores2019-1/Proyectos/ProyectoTemporal/Proyecto3/src/main/java/ast/patron/compuesto/IfElseNodo.java
 /home/stein/Documentos/Semestres/Semestre2019-1/Compiladores/Compiladores2019-1/Proyectos/ProyectoTemporal/Proyecto3/src/main/java/ast/patron/compuesto/Compuesto.java
+/home/stein/Documentos/Semestres/Semestre2019-1/Compiladores/Compiladores2019-1/Proyectos/ProyectoTemporal/Proyecto3/src/main/java/ast/patron/compuesto/IfNodo.java
 /home/stein/Documentos/Semestres/Semestre2019-1/Compiladores/Compiladores2019-1/Proyectos/ProyectoTemporal/Proyecto3/src/main/java/ast/patron/compuesto/DiffNodo.java
 /home/stein/Documentos/Semestres/Semestre2019-1/Compiladores/Compiladores2019-1/Proyectos/ProyectoTemporal/Proyecto3/src/main/java/ast/patron/compuesto/DoubleHoja.java
+/home/stein/Documentos/Semestres/Semestre2019-1/Compiladores/Compiladores2019-1/Proyectos/ProyectoTemporal/Proyecto3/src/main/java/ast/patron/compuesto/IdentificadorHoja.java
 /home/stein/Documentos/Semestres/Semestre2019-1/Compiladores/Compiladores2019-1/Proyectos/ProyectoTemporal/Proyecto3/target/generated-sources/jflex/asintactico/Parser.java
 /home/stein/Documentos/Semestres/Semestre2019-1/Compiladores/Compiladores2019-1/Proyectos/ProyectoTemporal/Proyecto3/target/generated-sources/jflex/ast/Flexer.java
 /home/stein/Documentos/Semestres/Semestre2019-1/Compiladores/Compiladores2019-1/Proyectos/ProyectoTemporal/Proyecto3/src/main/java/ast/patron/compuesto/PIzquierdoHoja.java
+/home/stein/Documentos/Semestres/Semestre2019-1/Compiladores/Compiladores2019-1/Proyectos/ProyectoTemporal/Proyecto3/src/main/java/ast/patron/compuesto/NodoUnario.java
 /home/stein/Documentos/Semestres/Semestre2019-1/Compiladores/Compiladores2019-1/Proyectos/ProyectoTemporal/Proyecto3/src/main/java/ast/patron/compuesto/NodoBinario.java
+/home/stein/Documentos/Semestres/Semestre2019-1/Compiladores/Compiladores2019-1/Proyectos/ProyectoTemporal/Proyecto3/src/main/java/ast/patron/compuesto/WhileNodo.java
 /home/stein/Documentos/Semestres/Semestre2019-1/Compiladores/Compiladores2019-1/Proyectos/ProyectoTemporal/Proyecto3/src/main/java/ast/patron/compuesto/AndNodo.java
+/home/stein/Documentos/Semestres/Semestre2019-1/Compiladores/Compiladores2019-1/Proyectos/ProyectoTemporal/Proyecto3/src/main/java/ast/patron/compuesto/NotNodo.java
 /home/stein/Documentos/Semestres/Semestre2019-1/Compiladores/Compiladores2019-1/Proyectos/ProyectoTemporal/Proyecto3/src/main/java/ast/patron/compuesto/OrNodo.java
 /home/stein/Documentos/Semestres/Semestre2019-1/Compiladores/Compiladores2019-1/Proyectos/ProyectoTemporal/Proyecto3/src/main/java/ast/patron/compuesto/Variable.java
 /home/stein/Documentos/Semestres/Semestre2019-1/Compiladores/Compiladores2019-1/Proyectos/ProyectoTemporal/Proyecto3/src/main/java/ast/patron/compuesto/DosPuntosHoja.java
@@ -28,6 +33,7 @@
 /home/stein/Documentos/Semestres/Semestre2019-1/Compiladores/Compiladores2019-1/Proyectos/ProyectoTemporal/Proyecto3/src/main/java/ast/patron/compuesto/DivEnteraNodo.java
 /home/stein/Documentos/Semestres/Semestre2019-1/Compiladores/Compiladores2019-1/Proyectos/ProyectoTemporal/Proyecto3/src/main/java/ast/patron/compuesto/MultNodo.java
 /home/stein/Documentos/Semestres/Semestre2019-1/Compiladores/Compiladores2019-1/Proyectos/ProyectoTemporal/Proyecto3/src/main/java/ast/patron/compuesto/BooleanHoja.java
+/home/stein/Documentos/Semestres/Semestre2019-1/Compiladores/Compiladores2019-1/Proyectos/ProyectoTemporal/Proyecto3/src/main/java/ast/patron/compuesto/PrintNodo.java
 /home/stein/Documentos/Semestres/Semestre2019-1/Compiladores/Compiladores2019-1/Proyectos/ProyectoTemporal/Proyecto3/src/main/java/ast/patron/visitante/Visitor.java
 /home/stein/Documentos/Semestres/Semestre2019-1/Compiladores/Compiladores2019-1/Proyectos/ProyectoTemporal/Proyecto3/src/main/java/ast/patron/compuesto/IntHoja.java
 /home/stein/Documentos/Semestres/Semestre2019-1/Compiladores/Compiladores2019-1/Proyectos/ProyectoTemporal/Proyecto3/src/main/java/ast/patron/compuesto/PDerechoHoja.java

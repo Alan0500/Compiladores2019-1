@@ -1,6 +1,7 @@
 package ast.patron.visitante;
 
 import java.util.Iterator;
+import java.util.LinkedList;
 
 import ast.patron.compuesto.*;
 // import java.util.LinkedList;
@@ -16,94 +17,148 @@ public class VisitorPrint implements Visitor {
     }
 
     public void visit(AddNodo n) {
-        System.out.print("[Nodo Suma] {");
+        System.out.print("[Nodo SUMA] {");
         Iterator<Nodo> hijos = n.getHijos().iterator();
+        boolean primerNodo = true; 
         while (hijos.hasNext()) {
+            if(primerNodo ==true){
+                primerNodo = false; 
+            }else {
+                System.out.print(",");
+            }
             visit(hijos.next());
+             
         }
         System.out.println("}");
     }
 
     public void visit(RestNodo n) {
-        System.out.print("[Nodo Resta] {");
+        System.out.print("[Nodo RESTA] {");
         Iterator<Nodo> hijos = n.getHijos().iterator();
+        boolean primerNodo = true; 
         while (hijos.hasNext()) {
+            if(primerNodo ==true){
+                primerNodo = false; 
+            }else {
+                System.out.print(",");
+            }
             visit(hijos.next());
-
+             
         }
         System.out.println("}");
     }
 
     public void visit(MultNodo n) {
-        System.out.print("[Nodo Multiplicacion] {");
+        System.out.print("[Nodo MULTIPLICACION] {");
         Iterator<Nodo> hijos = n.getHijos().iterator();
+        boolean primerNodo = true; 
         while (hijos.hasNext()) {
+            if(primerNodo ==true){
+                primerNodo = false; 
+            }else {
+                System.out.print(",");
+            }
             visit(hijos.next());
-
+             
         }
         System.out.println("}");
-
     }
 
     public void visit(DivNodo n) {
-        System.out.print("[Nodo Divicion] {");
+        System.out.print("[Nodo DIVICION] {");
         Iterator<Nodo> hijos = n.getHijos().iterator();
+        boolean primerNodo = true; 
         while (hijos.hasNext()) {
+            if(primerNodo ==true){
+                primerNodo = false; 
+            }else {
+                System.out.print(",");
+            }
             visit(hijos.next());
-
+             
         }
         System.out.println("}");
 
     }
 
     public void visit(DivEnteraNodo n) {
-        System.out.print("[Nodo DivicionEntera] {");
+        System.out.print("[Nodo DIVICION ENTERA] {");
         Iterator<Nodo> hijos = n.getHijos().iterator();
+        boolean primerNodo = true; 
         while (hijos.hasNext()) {
+            if(primerNodo ==true){
+                primerNodo = false; 
+            }else {
+                System.out.print(",");
+            }
             visit(hijos.next());
-
+             
         }
         System.out.println("}");
 
     }
 
     public void visit(MayorNodo n) {
-        System.out.print("[Nodo Mayor] {");
+        System.out.print("[Nodo MAYOR] {");
         Iterator<Nodo> hijos = n.getHijos().iterator();
+        boolean primerNodo = true; 
         while (hijos.hasNext()) {
+            if(primerNodo ==true){
+                primerNodo = false; 
+            }else {
+                System.out.print(",");
+            }
             visit(hijos.next());
-
+             
         }
         System.out.println("}");
     }
 
     public void visit(MenorNodo n) {
-        System.out.print("[Nodo Menor] {");
+        System.out.print("[Nodo MENOR] {");
         Iterator<Nodo> hijos = n.getHijos().iterator();
+        boolean primerNodo = true; 
         while (hijos.hasNext()) {
+            if(primerNodo ==true){
+                primerNodo = false; 
+            }else {
+                System.out.print(",");
+            }
             visit(hijos.next());
-
+             
         }
         System.out.println("}");
 
     }
 
     public void visit(IgualNodo n) {
-        System.out.print("[Nodo Igualdad] {");
+        System.out.print("[Nodo IGUALDAD] {");
         Iterator<Nodo> hijos = n.getHijos().iterator();
+        boolean primerNodo = true; 
         while (hijos.hasNext()) {
+            if(primerNodo ==true){
+                primerNodo = false; 
+            }else {
+                System.out.print(",");
+            }
             visit(hijos.next());
-
+             
         }
         System.out.println("}");
     }
 
     public void visit(ModuloNodo n) {
-        System.out.print("[Nodo Modulo] {");
+        System.out.print("[Nodo MODULO] {");
         Iterator<Nodo> hijos = n.getHijos().iterator();
+        boolean primerNodo = true; 
         while (hijos.hasNext()) {
+            if(primerNodo ==true){
+                primerNodo = false; 
+            }else {
+                System.out.print(",");
+            }
             visit(hijos.next());
-
+             
         }
         System.out.println("}");
     }
@@ -122,26 +177,105 @@ public class VisitorPrint implements Visitor {
     }
 
     public void visit(AndNodo n) {
+        System.out.print("[Nodo AND] {");
+        Iterator<Nodo> hijos = n.getHijos().iterator();
+        boolean primerNodo = true; 
+        while (hijos.hasNext()) {
+            if(primerNodo ==true){
+                primerNodo = false; 
+            }else {
+                System.out.print(",");
+            }
+            visit(hijos.next());
+             
+        }
+        System.out.println("}");
 
     }
 
     public void visit(OrNodo n) {
+        System.out.print("[Nodo OR] {");
+        Iterator<Nodo> hijos = n.getHijos().iterator();
+        boolean primerNodo = true; 
+        while (hijos.hasNext()) {
+            if(primerNodo ==true){
+                primerNodo = false; 
+            }else {
+                System.out.print(",");
+            }
+            visit(hijos.next());
+             
+        }
+        System.out.println("}");
 
     }
 
     public void visit(MayorIgualNodo n) {
+        System.out.print("[Nodo MAYOR IGUAL] {");
+        Iterator<Nodo> hijos = n.getHijos().iterator();
+        boolean primerNodo = true; 
+        while (hijos.hasNext()) {
+            if(primerNodo ==true){
+                primerNodo = false; 
+            }else {
+                System.out.print(",");
+            }
+            visit(hijos.next());
+             
+        }
+        System.out.println("}");
+        
 
     }
 
     public void visit(MenorIgualNodo n) {
+        System.out.print("[Nodo MENOR IGUAL] {");
+        Iterator<Nodo> hijos = n.getHijos().iterator();
+        boolean primerNodo = true; 
+        while (hijos.hasNext()) {
+            if(primerNodo ==true){
+                primerNodo = false; 
+            }else {
+                System.out.print(",");
+            }
+            visit(hijos.next());
+             
+        }
+        System.out.println("}");
 
     }
 
     public void visit(DiffNodo n) {
+        System.out.print("[Nodo DIFF] {");
+        Iterator<Nodo> hijos = n.getHijos().iterator();
+        boolean primerNodo = true; 
+        while (hijos.hasNext()) {
+            if(primerNodo ==true){
+                primerNodo = false; 
+            }else {
+                System.out.print(",");
+            }
+            visit(hijos.next());
+             
+        }
+        System.out.println("}");
 
     }
 
     public void visit(EqualsNodo n) {
+        System.out.print("[Nodo EQUALS] {");
+        Iterator<Nodo> hijos = n.getHijos().iterator();
+        boolean primerNodo = true; 
+        while (hijos.hasNext()) {
+            if(primerNodo ==true){
+                primerNodo = false; 
+            }else {
+                System.out.print(",");
+            }
+            visit(hijos.next());
+             
+        }
+        System.out.println("}");
 
     }
 
@@ -155,6 +289,29 @@ public class VisitorPrint implements Visitor {
 
     public void visit(DosPuntosHoja n) {
         System.out.print("[Hoja DosPuntos]" );
+    }
+    public void visit(IfNodo n) {        
+        System.out.print("[Nodo IF] condicion: {");
+        visit(n.obtenerCondicion());
+        System.out.print("} then:{");
+        visit(n.obtenerThen());
+        System.out.print("}");
+    }
+
+    public void visit(WhileNodo n) {               
+        System.out.print("[Nodo WHILE] condicion: {");
+        visit(n.obtenerCondicion());
+        System.out.print("} then:{");
+        visit(n.obtenerThen());
+        System.out.print("}");
+    }
+    public void visit(IdentificadorHoja n) {
+        System.out.print("[Hoja Identificador] nombre: {"+ n.getNombre()+ ", valor :"+ n.getValor().obj.toString()); 
+        System.out.print("}");
+    }
+
+    public void visit(PrintNodo n) {
+        System.out.println("[Nodo PRINT] valor:"+n.getValor().sval);
     }
 
     public void visit(Nodo n) {
@@ -227,7 +384,18 @@ public class VisitorPrint implements Visitor {
         if (n instanceof RestNodo) {
             visit((RestNodo) n);
         }
-
+        if (n instanceof IfNodo) {
+            visit((IfNodo) n);
+        }
+        if (n instanceof WhileNodo) {
+            visit((WhileNodo) n);
+        }
+        if (n instanceof IdentificadorHoja) {
+            visit((IdentificadorHoja) n);
+        }
+        if (n instanceof PrintNodo) {
+            visit((PrintNodo) n);
+        }
     }
 
 }

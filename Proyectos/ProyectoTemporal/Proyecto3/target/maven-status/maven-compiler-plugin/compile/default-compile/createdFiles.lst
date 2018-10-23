@@ -1,7 +1,9 @@
 ast/patron/compuesto/Nodo.class
 ast/patron/compuesto/Hoja.class
+ast/patron/compuesto/NodoUnario.class
 ast/patron/compuesto/DivEnteraNodo.class
 ast/patron/visitante/VisitorPrint.class
+ast/patron/compuesto/IdentificadorHoja.class
 ast/patron/compuesto/OrNodo.class
 ast/patron/compuesto/RestNodo.class
 ast/patron/compuesto/DoubleHoja.class
@@ -14,13 +16,16 @@ ast/patron/compuesto/Compuesto.class
 ast/patron/compuesto/MenorNodo.class
 ast/patron/compuesto/EqualsNodo.class
 ast/patron/compuesto/DiffNodo.class
+ast/patron/compuesto/WhileNodo.class
 ast/Compilador.class
 ast/patron/compuesto/MayorIgualNodo.class
 ast/patron/compuesto/NodoBinario.class
 ast/patron/compuesto/IfElseNodo.class
+ast/patron/compuesto/PrintNodo.class
 ast/patron/compuesto/Variable.class
 ast/patron/compuesto/Hijos.class
 ast/patron/compuesto/ModuloNodo.class
+ast/patron/compuesto/IfNodo.class
 ast/patron/compuesto/MultNodo.class
 ast/patron/compuesto/IgualNodo.class
 ast/patron/compuesto/PIzquierdoHoja.class
@@ -31,4 +36,5 @@ ast/patron/compuesto/BooleanHoja.class
 ast/patron/visitante/Visitor.class
 ast/patron/compuesto/DivNodo.class
 ast/patron/compuesto/IntHoja.class
+ast/patron/compuesto/NotNodo.class
 ast/Flexer.class

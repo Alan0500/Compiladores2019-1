@@ -2,14 +2,11 @@ package ast.patron.compuesto;
 
 import ast.patron.visitante.*;
 
-public class IfElseNodo extends Compuesto {
+public class WhileNodo extends Compuesto {
 
-    public IfElseNodo(Nodo Condicion, Nodo Then, Nodo Else) {
-        // super(izquierdo, derecho);
-        // tipo = 4;
+    public WhileNodo(Nodo Condicion, Nodo Then) {
         super(Condicion);
         super.hijos.getAll().add(1, Then);
-        super.hijos.getAll().add(2, Else);
 
     }
 
@@ -21,10 +18,6 @@ public class IfElseNodo extends Compuesto {
         super.hijos.getAll().add(1, r);
     }
 
-    public void agregarElse(Nodo r) {
-        super.hijos.getAll().add(2, r);
-    }
-
     public Nodo obtenerCondicion() {
         return super.hijos.getAll().get(0);
     }
@@ -33,9 +26,6 @@ public class IfElseNodo extends Compuesto {
         return super.hijos.getAll().get(1);
     }
 
-    public Nodo obtenerElse() {
-        return super.hijos.getAll().get(2);
-    }
 
     public void accept(Visitor v) {
         v.visit(this);

@@ -31,7 +31,7 @@ public class Compilador{
         try{
             Reader a = new FileReader(archivo);
             Compilador c  = new Compilador(a);
-            c.ConstruyeAST(true);
+            c.ConstruyeAST(false);
             c.imprimeAST();
         }catch(FileNotFoundException e){
             System.err.println("El archivo " + archivo +" no fue encontrado. ");

@@ -20,12 +20,12 @@ public interface Visitor
     public void visit(BooleanHoja n);
     public void visit(AndNodo n);
     public void visit(OrNodo n);
-    // public void visit(IfNodo n);
-    // public void visit(WhileNodo n);
-    // public void visit(IdentificadorHoja n);
-    // public void visit(NotNodo n);
-    // public void visit(ForNodo n);
-    // public void visit(PrintNodo n);
+    public void visit(IfNodo n);
+    public void visit(WhileNodo n);
+    public void visit(IdentificadorHoja n);
+    //public void visit(NotNodo n);
+    
+    public void visit(PrintNodo n);
     public void visit(MayorIgualNodo n);
     public void visit(MenorIgualNodo n);
     public void visit(DiffNodo n);
@@ -33,7 +33,6 @@ public interface Visitor
     public void visit(PDerechoHoja n);
     public void visit(PIzquierdoHoja n);
     public void visit(DosPuntosHoja n);
-
 
 
 }
