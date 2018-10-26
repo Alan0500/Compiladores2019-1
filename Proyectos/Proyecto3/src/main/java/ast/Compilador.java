@@ -27,11 +27,12 @@ public class Compilador{
     }
 
     public static void main(String[] args){
-            String archivo = "src/main/resources/test.p";
+            //String archivo = "src/main/resources/fizzbuzz.p";
+            String archivo = "src/main/resources/fizzbuzz.p";
         try{
             Reader a = new FileReader(archivo);
             Compilador c  = new Compilador(a);
-            c.ConstruyeAST(true);
+            c.ConstruyeAST(false);
             c.imprimeAST();
         }catch(FileNotFoundException e){
             System.err.println("El archivo " + archivo +" no fue encontrado. ");

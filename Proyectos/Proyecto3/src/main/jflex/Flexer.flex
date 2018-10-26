@@ -101,10 +101,11 @@ BOOLEAN		        =	("True" | "False")
 					    yybegin(CODIGO);}
 }
 <CADENA>{
-  {CHAR_LITERAL}+                         { cadena = yytext();}
+  {CHAR_LITERAL}+                         { yyparser.yylval = new StringHoja(yytext()); cadena = yytext();}
   \"					  { yybegin(CODIGO);
-                                            cadena = "";
-					    return Parser.CADENA;}
+                  //cadena = "";
+					        //yyparser.yylval = new StringHoja(yytext());
+                  return Parser.CADENA;}
   {SALTO}				  { System.out.println("Unexpected newline. Line "+(yyline+1));
 					     System.exit(1);}
 }
@@ -135,13 +136,14 @@ BOOLEAN		        =	("True" | "False")
   "or"                                    { return Parser.OR;}
   "else"                                  { return Parser.ELSE;}
   "if"                                    { return Parser.IF;}
-  "print"				  { return Parser.PRINT;}
+  "print"				                          { return Parser.PRINT;}
   {SALTO}				  { yybegin(INDENTA); actual=0; return Parser.SALTO;}
-  {REAL}				  { return Parser.REAL;}
+  {REAL}				  { yyparser.yylval = new DoubleHoja(Double.parseDouble(yytext())); return Parser.REAL;}
   {ENTERO}				  { yyparser.yylval = new IntHoja(Integer.parseInt(yytext()));
                                             return Parser.ENTERO; }
-  {BOOLEAN}                               { return Parser.BOOLEANO;}
-  {IDENTIFIER}				  { }
+  {BOOLEAN}                               { yyparser.yylval = new BooleanHoja(Boolean.parseBoolean(yytext()));return Parser.BOOLEANO;}
+  {IDENTIFIER}				  { yyparser.yylval = new IdentificadorHoja(yytext());
+                                            return Parser.IDENTIFICADOR;}
   " "					  { }
 }
 <INDENTA>{

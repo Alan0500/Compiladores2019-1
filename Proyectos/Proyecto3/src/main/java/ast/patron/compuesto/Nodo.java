@@ -11,6 +11,11 @@ public class Nodo {
     int tipo;
     String name;
 
+    public Nodo(){
+        hijos = new Hijos(); 
+        
+    }
+
     public Hijos getHijos() {
         return hijos;
     }
@@ -20,6 +25,7 @@ public class Nodo {
     }
 
     public void setHijo(Nodo c) {
+        hijos.getAll().add(c); 
     }
 
     public Nodo getUltimoHijo() {
@@ -31,11 +37,11 @@ public class Nodo {
     }
 
     public void agregaHijoFinal(Nodo r) {
-
+        this.hijos.agregaHijoFinal(r);
     }
 
     public void agregaHijoPrincipio(Nodo r) {
-
+        this.hijos.agregaHijoPrincipio(r);
     }
 
     public Variable getValor() {

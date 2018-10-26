@@ -6,17 +6,25 @@ public class NodoBinario extends Nodo {
 
     public NodoBinario(Nodo primer, Nodo ultimo) {
         super(); 
-        agregaHijoPrincipio(primer);
-        agregaHijoFinal(ultimo);
+        if(primer != null){
+            agregaHijoPrincipio(primer);
+        }
+        if(ultimo != null){
+            agregaHijoFinal(ultimo);
+        }
         tipo = 4;
     }
     @Override
     public void agregaHijoPrincipio(Nodo r) {
-        super.agregaHijoPrincipio(r);
+        if(r != null){
+            super.agregaHijoPrincipio(r);
+        }        
     }
     @Override
     public void agregaHijoFinal(Nodo r) {
-        super.agregaHijoFinal(r);
+        if (r != null){
+            super.agregaHijoFinal(r);
+        }
     }
     @Override
     public Nodo getPrimerHijo() {
