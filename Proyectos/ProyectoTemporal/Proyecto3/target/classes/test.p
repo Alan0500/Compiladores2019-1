@@ -1,1 +1,1 @@
-True < False >= 34
+True and False

@@ -427,7 +427,7 @@ final static String yyrule[] = {
 "atom : PA test PC",
 };
 
-//#line 184 "/home/stein/Documentos/Semestres/Semestre2019-1/Compiladores/Compiladores2019-1/Proyectos/ProyectoTemporal/Proyecto3/src/main/byaccj/Parser.y"
+//#line 187 "/home/stein/Documentos/Semestres/Semestre2019-1/Compiladores/Compiladores2019-1/Proyectos/ProyectoTemporal/Proyecto3/src/main/byaccj/Parser.y"
 private Flexer lexer;
 /* Nodo Raiz del AST */
 public Nodo raíz;
@@ -619,15 +619,15 @@ case 2:
 break;
 case 4:
 //#line 26 "/home/stein/Documentos/Semestres/Semestre2019-1/Compiladores/Compiladores2019-1/Proyectos/ProyectoTemporal/Proyecto3/src/main/byaccj/Parser.y"
-{yyval = val_peek(0);}
+{yyval = new Compuesto(val_peek(0));}
 break;
 case 5:
 //#line 27 "/home/stein/Documentos/Semestres/Semestre2019-1/Compiladores/Compiladores2019-1/Proyectos/ProyectoTemporal/Proyecto3/src/main/byaccj/Parser.y"
-{}
+{yyval = val_peek(1);}
 break;
 case 6:
 //#line 28 "/home/stein/Documentos/Semestres/Semestre2019-1/Compiladores/Compiladores2019-1/Proyectos/ProyectoTemporal/Proyecto3/src/main/byaccj/Parser.y"
-{}
+{yyval = val_peek(1);}
 break;
 case 7:
 //#line 32 "/home/stein/Documentos/Semestres/Semestre2019-1/Compiladores/Compiladores2019-1/Proyectos/ProyectoTemporal/Proyecto3/src/main/byaccj/Parser.y"
@@ -639,23 +639,23 @@ case 8:
 break;
 case 9:
 //#line 37 "/home/stein/Documentos/Semestres/Semestre2019-1/Compiladores/Compiladores2019-1/Proyectos/ProyectoTemporal/Proyecto3/src/main/byaccj/Parser.y"
-{}
+{yyval = val_peek(0);}
 break;
 case 10:
 //#line 38 "/home/stein/Documentos/Semestres/Semestre2019-1/Compiladores/Compiladores2019-1/Proyectos/ProyectoTemporal/Proyecto3/src/main/byaccj/Parser.y"
-{}
+{yyval = val_peek(0); }
 break;
 case 11:
 //#line 42 "/home/stein/Documentos/Semestres/Semestre2019-1/Compiladores/Compiladores2019-1/Proyectos/ProyectoTemporal/Proyecto3/src/main/byaccj/Parser.y"
-{}
+{yyval = new IfElseNodo(val_peek(5),val_peek(3),val_peek(0));}
 break;
 case 12:
 //#line 43 "/home/stein/Documentos/Semestres/Semestre2019-1/Compiladores/Compiladores2019-1/Proyectos/ProyectoTemporal/Proyecto3/src/main/byaccj/Parser.y"
-{}
+{ yyval = new IfNodo(val_peek(2),val_peek(0)); }
 break;
 case 13:
 //#line 47 "/home/stein/Documentos/Semestres/Semestre2019-1/Compiladores/Compiladores2019-1/Proyectos/ProyectoTemporal/Proyecto3/src/main/byaccj/Parser.y"
-{}
+{yyval = new WhileNodo(val_peek(2),val_peek(0));}
 break;
 case 14:
 //#line 51 "/home/stein/Documentos/Semestres/Semestre2019-1/Compiladores/Compiladores2019-1/Proyectos/ProyectoTemporal/Proyecto3/src/main/byaccj/Parser.y"
@@ -667,246 +667,249 @@ case 15:
 break;
 case 16:
 //#line 56 "/home/stein/Documentos/Semestres/Semestre2019-1/Compiladores/Compiladores2019-1/Proyectos/ProyectoTemporal/Proyecto3/src/main/byaccj/Parser.y"
-{}
+{yyval = val_peek(0) ; }
 break;
 case 17:
 //#line 57 "/home/stein/Documentos/Semestres/Semestre2019-1/Compiladores/Compiladores2019-1/Proyectos/ProyectoTemporal/Proyecto3/src/main/byaccj/Parser.y"
-{}
+{ val_peek(1).agregaHijoFinal(val_peek(0)); 
+                        yyval = val_peek(1) ;}
 break;
 case 18:
-//#line 61 "/home/stein/Documentos/Semestres/Semestre2019-1/Compiladores/Compiladores2019-1/Proyectos/ProyectoTemporal/Proyecto3/src/main/byaccj/Parser.y"
+//#line 62 "/home/stein/Documentos/Semestres/Semestre2019-1/Compiladores/Compiladores2019-1/Proyectos/ProyectoTemporal/Proyecto3/src/main/byaccj/Parser.y"
 {yyval = val_peek(1);}
 break;
 case 19:
-//#line 65 "/home/stein/Documentos/Semestres/Semestre2019-1/Compiladores/Compiladores2019-1/Proyectos/ProyectoTemporal/Proyecto3/src/main/byaccj/Parser.y"
+//#line 66 "/home/stein/Documentos/Semestres/Semestre2019-1/Compiladores/Compiladores2019-1/Proyectos/ProyectoTemporal/Proyecto3/src/main/byaccj/Parser.y"
 {yyval = val_peek(0);}
 break;
 case 20:
-//#line 66 "/home/stein/Documentos/Semestres/Semestre2019-1/Compiladores/Compiladores2019-1/Proyectos/ProyectoTemporal/Proyecto3/src/main/byaccj/Parser.y"
-{}
+//#line 67 "/home/stein/Documentos/Semestres/Semestre2019-1/Compiladores/Compiladores2019-1/Proyectos/ProyectoTemporal/Proyecto3/src/main/byaccj/Parser.y"
+{yyval = val_peek(0);}
 break;
 case 21:
-//#line 70 "/home/stein/Documentos/Semestres/Semestre2019-1/Compiladores/Compiladores2019-1/Proyectos/ProyectoTemporal/Proyecto3/src/main/byaccj/Parser.y"
+//#line 71 "/home/stein/Documentos/Semestres/Semestre2019-1/Compiladores/Compiladores2019-1/Proyectos/ProyectoTemporal/Proyecto3/src/main/byaccj/Parser.y"
 {yyval = val_peek(0);}
 break;
 case 22:
-//#line 71 "/home/stein/Documentos/Semestres/Semestre2019-1/Compiladores/Compiladores2019-1/Proyectos/ProyectoTemporal/Proyecto3/src/main/byaccj/Parser.y"
+//#line 72 "/home/stein/Documentos/Semestres/Semestre2019-1/Compiladores/Compiladores2019-1/Proyectos/ProyectoTemporal/Proyecto3/src/main/byaccj/Parser.y"
 {}
 break;
 case 23:
-//#line 75 "/home/stein/Documentos/Semestres/Semestre2019-1/Compiladores/Compiladores2019-1/Proyectos/ProyectoTemporal/Proyecto3/src/main/byaccj/Parser.y"
-{}
+//#line 76 "/home/stein/Documentos/Semestres/Semestre2019-1/Compiladores/Compiladores2019-1/Proyectos/ProyectoTemporal/Proyecto3/src/main/byaccj/Parser.y"
+{yyval = new PrintNodo(val_peek(0));}
 break;
 case 24:
-//#line 79 "/home/stein/Documentos/Semestres/Semestre2019-1/Compiladores/Compiladores2019-1/Proyectos/ProyectoTemporal/Proyecto3/src/main/byaccj/Parser.y"
+//#line 80 "/home/stein/Documentos/Semestres/Semestre2019-1/Compiladores/Compiladores2019-1/Proyectos/ProyectoTemporal/Proyecto3/src/main/byaccj/Parser.y"
 {yyval = val_peek(0);}
 break;
 case 25:
-//#line 83 "/home/stein/Documentos/Semestres/Semestre2019-1/Compiladores/Compiladores2019-1/Proyectos/ProyectoTemporal/Proyecto3/src/main/byaccj/Parser.y"
+//#line 84 "/home/stein/Documentos/Semestres/Semestre2019-1/Compiladores/Compiladores2019-1/Proyectos/ProyectoTemporal/Proyecto3/src/main/byaccj/Parser.y"
 {yyval = val_peek(0);}
 break;
 case 26:
-//#line 84 "/home/stein/Documentos/Semestres/Semestre2019-1/Compiladores/Compiladores2019-1/Proyectos/ProyectoTemporal/Proyecto3/src/main/byaccj/Parser.y"
+//#line 85 "/home/stein/Documentos/Semestres/Semestre2019-1/Compiladores/Compiladores2019-1/Proyectos/ProyectoTemporal/Proyecto3/src/main/byaccj/Parser.y"
 {}
 break;
 case 27:
-//#line 87 "/home/stein/Documentos/Semestres/Semestre2019-1/Compiladores/Compiladores2019-1/Proyectos/ProyectoTemporal/Proyecto3/src/main/byaccj/Parser.y"
-{}
-break;
-case 28:
 //#line 88 "/home/stein/Documentos/Semestres/Semestre2019-1/Compiladores/Compiladores2019-1/Proyectos/ProyectoTemporal/Proyecto3/src/main/byaccj/Parser.y"
 {}
 break;
+case 28:
+//#line 89 "/home/stein/Documentos/Semestres/Semestre2019-1/Compiladores/Compiladores2019-1/Proyectos/ProyectoTemporal/Proyecto3/src/main/byaccj/Parser.y"
+{}
+break;
 case 29:
-//#line 92 "/home/stein/Documentos/Semestres/Semestre2019-1/Compiladores/Compiladores2019-1/Proyectos/ProyectoTemporal/Proyecto3/src/main/byaccj/Parser.y"
+//#line 93 "/home/stein/Documentos/Semestres/Semestre2019-1/Compiladores/Compiladores2019-1/Proyectos/ProyectoTemporal/Proyecto3/src/main/byaccj/Parser.y"
 {yyval = val_peek(0);}
 break;
 case 30:
-//#line 93 "/home/stein/Documentos/Semestres/Semestre2019-1/Compiladores/Compiladores2019-1/Proyectos/ProyectoTemporal/Proyecto3/src/main/byaccj/Parser.y"
-{}
+//#line 94 "/home/stein/Documentos/Semestres/Semestre2019-1/Compiladores/Compiladores2019-1/Proyectos/ProyectoTemporal/Proyecto3/src/main/byaccj/Parser.y"
+{yyval = val_peek(1) ; 
+                         yyval.agregaHijoFinal(val_peek(0)); }
 break;
 case 31:
-//#line 97 "/home/stein/Documentos/Semestres/Semestre2019-1/Compiladores/Compiladores2019-1/Proyectos/ProyectoTemporal/Proyecto3/src/main/byaccj/Parser.y"
-{}
+//#line 99 "/home/stein/Documentos/Semestres/Semestre2019-1/Compiladores/Compiladores2019-1/Proyectos/ProyectoTemporal/Proyecto3/src/main/byaccj/Parser.y"
+{ yyval = new AndNodo(val_peek(1),null); }
 break;
 case 32:
-//#line 98 "/home/stein/Documentos/Semestres/Semestre2019-1/Compiladores/Compiladores2019-1/Proyectos/ProyectoTemporal/Proyecto3/src/main/byaccj/Parser.y"
-{}
+//#line 100 "/home/stein/Documentos/Semestres/Semestre2019-1/Compiladores/Compiladores2019-1/Proyectos/ProyectoTemporal/Proyecto3/src/main/byaccj/Parser.y"
+{val_peek(2).agregaHijoFinal(val_peek(1));
+                         yyval = new AndNodo(val_peek(2),null);}
 break;
 case 33:
-//#line 102 "/home/stein/Documentos/Semestres/Semestre2019-1/Compiladores/Compiladores2019-1/Proyectos/ProyectoTemporal/Proyecto3/src/main/byaccj/Parser.y"
+//#line 105 "/home/stein/Documentos/Semestres/Semestre2019-1/Compiladores/Compiladores2019-1/Proyectos/ProyectoTemporal/Proyecto3/src/main/byaccj/Parser.y"
 {}
 break;
 case 34:
-//#line 103 "/home/stein/Documentos/Semestres/Semestre2019-1/Compiladores/Compiladores2019-1/Proyectos/ProyectoTemporal/Proyecto3/src/main/byaccj/Parser.y"
+//#line 106 "/home/stein/Documentos/Semestres/Semestre2019-1/Compiladores/Compiladores2019-1/Proyectos/ProyectoTemporal/Proyecto3/src/main/byaccj/Parser.y"
 {yyval = val_peek(0);}
 break;
 case 35:
-//#line 107 "/home/stein/Documentos/Semestres/Semestre2019-1/Compiladores/Compiladores2019-1/Proyectos/ProyectoTemporal/Proyecto3/src/main/byaccj/Parser.y"
+//#line 110 "/home/stein/Documentos/Semestres/Semestre2019-1/Compiladores/Compiladores2019-1/Proyectos/ProyectoTemporal/Proyecto3/src/main/byaccj/Parser.y"
 {yyval = val_peek(0);}
 break;
 case 36:
-//#line 108 "/home/stein/Documentos/Semestres/Semestre2019-1/Compiladores/Compiladores2019-1/Proyectos/ProyectoTemporal/Proyecto3/src/main/byaccj/Parser.y"
+//#line 111 "/home/stein/Documentos/Semestres/Semestre2019-1/Compiladores/Compiladores2019-1/Proyectos/ProyectoTemporal/Proyecto3/src/main/byaccj/Parser.y"
 {yyval = val_peek(1);
                  yyval.agregaHijoFinal(val_peek(0)); }
 break;
 case 37:
-//#line 113 "/home/stein/Documentos/Semestres/Semestre2019-1/Compiladores/Compiladores2019-1/Proyectos/ProyectoTemporal/Proyecto3/src/main/byaccj/Parser.y"
+//#line 116 "/home/stein/Documentos/Semestres/Semestre2019-1/Compiladores/Compiladores2019-1/Proyectos/ProyectoTemporal/Proyecto3/src/main/byaccj/Parser.y"
 {yyval = val_peek(0);
                     yyval.agregaHijoPrincipio(val_peek(1));}
 break;
 case 38:
-//#line 115 "/home/stein/Documentos/Semestres/Semestre2019-1/Compiladores/Compiladores2019-1/Proyectos/ProyectoTemporal/Proyecto3/src/main/byaccj/Parser.y"
+//#line 118 "/home/stein/Documentos/Semestres/Semestre2019-1/Compiladores/Compiladores2019-1/Proyectos/ProyectoTemporal/Proyecto3/src/main/byaccj/Parser.y"
 {yyval = val_peek(0) ; 
                         val_peek(2).agregaHijoFinal(val_peek(1));
                         yyval.agregaHijoPrincipio(val_peek(2));}
 break;
 case 39:
-//#line 121 "/home/stein/Documentos/Semestres/Semestre2019-1/Compiladores/Compiladores2019-1/Proyectos/ProyectoTemporal/Proyecto3/src/main/byaccj/Parser.y"
+//#line 124 "/home/stein/Documentos/Semestres/Semestre2019-1/Compiladores/Compiladores2019-1/Proyectos/ProyectoTemporal/Proyecto3/src/main/byaccj/Parser.y"
 {yyval = new MenorNodo(null,null);}
 break;
 case 40:
-//#line 122 "/home/stein/Documentos/Semestres/Semestre2019-1/Compiladores/Compiladores2019-1/Proyectos/ProyectoTemporal/Proyecto3/src/main/byaccj/Parser.y"
+//#line 125 "/home/stein/Documentos/Semestres/Semestre2019-1/Compiladores/Compiladores2019-1/Proyectos/ProyectoTemporal/Proyecto3/src/main/byaccj/Parser.y"
 {yyval = new MayorNodo(null,null);}
 break;
 case 41:
-//#line 123 "/home/stein/Documentos/Semestres/Semestre2019-1/Compiladores/Compiladores2019-1/Proyectos/ProyectoTemporal/Proyecto3/src/main/byaccj/Parser.y"
+//#line 126 "/home/stein/Documentos/Semestres/Semestre2019-1/Compiladores/Compiladores2019-1/Proyectos/ProyectoTemporal/Proyecto3/src/main/byaccj/Parser.y"
 {yyval = new IgualNodo(null,null);}
 break;
 case 42:
-//#line 124 "/home/stein/Documentos/Semestres/Semestre2019-1/Compiladores/Compiladores2019-1/Proyectos/ProyectoTemporal/Proyecto3/src/main/byaccj/Parser.y"
+//#line 127 "/home/stein/Documentos/Semestres/Semestre2019-1/Compiladores/Compiladores2019-1/Proyectos/ProyectoTemporal/Proyecto3/src/main/byaccj/Parser.y"
 {yyval = new MayorIgualNodo(null,null);}
 break;
 case 43:
-//#line 125 "/home/stein/Documentos/Semestres/Semestre2019-1/Compiladores/Compiladores2019-1/Proyectos/ProyectoTemporal/Proyecto3/src/main/byaccj/Parser.y"
+//#line 128 "/home/stein/Documentos/Semestres/Semestre2019-1/Compiladores/Compiladores2019-1/Proyectos/ProyectoTemporal/Proyecto3/src/main/byaccj/Parser.y"
 {yyval = new MenorIgualNodo(null,null);}
 break;
 case 44:
-//#line 126 "/home/stein/Documentos/Semestres/Semestre2019-1/Compiladores/Compiladores2019-1/Proyectos/ProyectoTemporal/Proyecto3/src/main/byaccj/Parser.y"
+//#line 129 "/home/stein/Documentos/Semestres/Semestre2019-1/Compiladores/Compiladores2019-1/Proyectos/ProyectoTemporal/Proyecto3/src/main/byaccj/Parser.y"
 {yyval = new DiffNodo(null,null);}
 break;
 case 45:
-//#line 130 "/home/stein/Documentos/Semestres/Semestre2019-1/Compiladores/Compiladores2019-1/Proyectos/ProyectoTemporal/Proyecto3/src/main/byaccj/Parser.y"
+//#line 133 "/home/stein/Documentos/Semestres/Semestre2019-1/Compiladores/Compiladores2019-1/Proyectos/ProyectoTemporal/Proyecto3/src/main/byaccj/Parser.y"
 {yyval = val_peek(0);}
 break;
 case 46:
-//#line 131 "/home/stein/Documentos/Semestres/Semestre2019-1/Compiladores/Compiladores2019-1/Proyectos/ProyectoTemporal/Proyecto3/src/main/byaccj/Parser.y"
+//#line 134 "/home/stein/Documentos/Semestres/Semestre2019-1/Compiladores/Compiladores2019-1/Proyectos/ProyectoTemporal/Proyecto3/src/main/byaccj/Parser.y"
 {yyval = val_peek(1);
                  yyval.agregaHijoFinal(val_peek(0)); }
 break;
 case 47:
-//#line 134 "/home/stein/Documentos/Semestres/Semestre2019-1/Compiladores/Compiladores2019-1/Proyectos/ProyectoTemporal/Proyecto3/src/main/byaccj/Parser.y"
+//#line 137 "/home/stein/Documentos/Semestres/Semestre2019-1/Compiladores/Compiladores2019-1/Proyectos/ProyectoTemporal/Proyecto3/src/main/byaccj/Parser.y"
 {yyval = new AddNodo(val_peek(1),null);}
 break;
 case 48:
-//#line 135 "/home/stein/Documentos/Semestres/Semestre2019-1/Compiladores/Compiladores2019-1/Proyectos/ProyectoTemporal/Proyecto3/src/main/byaccj/Parser.y"
+//#line 138 "/home/stein/Documentos/Semestres/Semestre2019-1/Compiladores/Compiladores2019-1/Proyectos/ProyectoTemporal/Proyecto3/src/main/byaccj/Parser.y"
 { yyval = new RestNodo(val_peek(1),null);}
 break;
 case 49:
-//#line 136 "/home/stein/Documentos/Semestres/Semestre2019-1/Compiladores/Compiladores2019-1/Proyectos/ProyectoTemporal/Proyecto3/src/main/byaccj/Parser.y"
+//#line 139 "/home/stein/Documentos/Semestres/Semestre2019-1/Compiladores/Compiladores2019-1/Proyectos/ProyectoTemporal/Proyecto3/src/main/byaccj/Parser.y"
 {yyval = new AddNodo(val_peek(2),null); 
                         val_peek(2).agregaHijoFinal(val_peek(1));}
 break;
 case 50:
-//#line 138 "/home/stein/Documentos/Semestres/Semestre2019-1/Compiladores/Compiladores2019-1/Proyectos/ProyectoTemporal/Proyecto3/src/main/byaccj/Parser.y"
+//#line 141 "/home/stein/Documentos/Semestres/Semestre2019-1/Compiladores/Compiladores2019-1/Proyectos/ProyectoTemporal/Proyecto3/src/main/byaccj/Parser.y"
 {yyval = new RestNodo(null,null); 
                         val_peek(2).agregaHijoFinal(val_peek(1));
                         yyval.agregaHijoPrincipio(val_peek(2));}
 break;
 case 51:
-//#line 144 "/home/stein/Documentos/Semestres/Semestre2019-1/Compiladores/Compiladores2019-1/Proyectos/ProyectoTemporal/Proyecto3/src/main/byaccj/Parser.y"
+//#line 147 "/home/stein/Documentos/Semestres/Semestre2019-1/Compiladores/Compiladores2019-1/Proyectos/ProyectoTemporal/Proyecto3/src/main/byaccj/Parser.y"
 {yyval = val_peek(0);}
 break;
 case 52:
-//#line 145 "/home/stein/Documentos/Semestres/Semestre2019-1/Compiladores/Compiladores2019-1/Proyectos/ProyectoTemporal/Proyecto3/src/main/byaccj/Parser.y"
+//#line 148 "/home/stein/Documentos/Semestres/Semestre2019-1/Compiladores/Compiladores2019-1/Proyectos/ProyectoTemporal/Proyecto3/src/main/byaccj/Parser.y"
 {yyval = val_peek(1);
                  yyval.agregaHijoFinal(val_peek(0)); }
 break;
 case 53:
-//#line 148 "/home/stein/Documentos/Semestres/Semestre2019-1/Compiladores/Compiladores2019-1/Proyectos/ProyectoTemporal/Proyecto3/src/main/byaccj/Parser.y"
+//#line 151 "/home/stein/Documentos/Semestres/Semestre2019-1/Compiladores/Compiladores2019-1/Proyectos/ProyectoTemporal/Proyecto3/src/main/byaccj/Parser.y"
 {yyval = new MultNodo(val_peek(1),null); }
 break;
 case 54:
-//#line 149 "/home/stein/Documentos/Semestres/Semestre2019-1/Compiladores/Compiladores2019-1/Proyectos/ProyectoTemporal/Proyecto3/src/main/byaccj/Parser.y"
+//#line 152 "/home/stein/Documentos/Semestres/Semestre2019-1/Compiladores/Compiladores2019-1/Proyectos/ProyectoTemporal/Proyecto3/src/main/byaccj/Parser.y"
 {yyval = new DivEnteraNodo(val_peek(1),null);}
 break;
 case 55:
-//#line 150 "/home/stein/Documentos/Semestres/Semestre2019-1/Compiladores/Compiladores2019-1/Proyectos/ProyectoTemporal/Proyecto3/src/main/byaccj/Parser.y"
+//#line 153 "/home/stein/Documentos/Semestres/Semestre2019-1/Compiladores/Compiladores2019-1/Proyectos/ProyectoTemporal/Proyecto3/src/main/byaccj/Parser.y"
 {yyval = new ModuloNodo(val_peek(1),null);}
 break;
 case 56:
-//#line 151 "/home/stein/Documentos/Semestres/Semestre2019-1/Compiladores/Compiladores2019-1/Proyectos/ProyectoTemporal/Proyecto3/src/main/byaccj/Parser.y"
+//#line 154 "/home/stein/Documentos/Semestres/Semestre2019-1/Compiladores/Compiladores2019-1/Proyectos/ProyectoTemporal/Proyecto3/src/main/byaccj/Parser.y"
 {yyval = new DivNodo(val_peek(1),null);}
 break;
 case 57:
-//#line 152 "/home/stein/Documentos/Semestres/Semestre2019-1/Compiladores/Compiladores2019-1/Proyectos/ProyectoTemporal/Proyecto3/src/main/byaccj/Parser.y"
+//#line 155 "/home/stein/Documentos/Semestres/Semestre2019-1/Compiladores/Compiladores2019-1/Proyectos/ProyectoTemporal/Proyecto3/src/main/byaccj/Parser.y"
 {yyval = new MultNodo(null,null);
                         val_peek(2).agregaHijoFinal(val_peek(1));
                         yyval.agregaHijoPrincipio(val_peek(2));}
 break;
 case 58:
-//#line 155 "/home/stein/Documentos/Semestres/Semestre2019-1/Compiladores/Compiladores2019-1/Proyectos/ProyectoTemporal/Proyecto3/src/main/byaccj/Parser.y"
+//#line 158 "/home/stein/Documentos/Semestres/Semestre2019-1/Compiladores/Compiladores2019-1/Proyectos/ProyectoTemporal/Proyecto3/src/main/byaccj/Parser.y"
 {yyval = new DivEnteraNodo(null,null); 
                         val_peek(2).agregaHijoFinal(val_peek(1));
                         yyval.agregaHijoPrincipio(val_peek(2));}
 break;
 case 59:
-//#line 158 "/home/stein/Documentos/Semestres/Semestre2019-1/Compiladores/Compiladores2019-1/Proyectos/ProyectoTemporal/Proyecto3/src/main/byaccj/Parser.y"
+//#line 161 "/home/stein/Documentos/Semestres/Semestre2019-1/Compiladores/Compiladores2019-1/Proyectos/ProyectoTemporal/Proyecto3/src/main/byaccj/Parser.y"
 {yyval = new ModuloNodo(null,null); 
                         val_peek(2).agregaHijoFinal(val_peek(1));
                         yyval.agregaHijoPrincipio(val_peek(2));}
 break;
 case 60:
-//#line 161 "/home/stein/Documentos/Semestres/Semestre2019-1/Compiladores/Compiladores2019-1/Proyectos/ProyectoTemporal/Proyecto3/src/main/byaccj/Parser.y"
+//#line 164 "/home/stein/Documentos/Semestres/Semestre2019-1/Compiladores/Compiladores2019-1/Proyectos/ProyectoTemporal/Proyecto3/src/main/byaccj/Parser.y"
 {yyval = new DivNodo(null,null); 
                         val_peek(2).agregaHijoFinal(val_peek(1));
                         yyval.agregaHijoPrincipio(val_peek(2));}
 break;
 case 61:
-//#line 166 "/home/stein/Documentos/Semestres/Semestre2019-1/Compiladores/Compiladores2019-1/Proyectos/ProyectoTemporal/Proyecto3/src/main/byaccj/Parser.y"
+//#line 169 "/home/stein/Documentos/Semestres/Semestre2019-1/Compiladores/Compiladores2019-1/Proyectos/ProyectoTemporal/Proyecto3/src/main/byaccj/Parser.y"
 {}
 break;
 case 62:
-//#line 167 "/home/stein/Documentos/Semestres/Semestre2019-1/Compiladores/Compiladores2019-1/Proyectos/ProyectoTemporal/Proyecto3/src/main/byaccj/Parser.y"
+//#line 170 "/home/stein/Documentos/Semestres/Semestre2019-1/Compiladores/Compiladores2019-1/Proyectos/ProyectoTemporal/Proyecto3/src/main/byaccj/Parser.y"
 {}
 break;
 case 63:
-//#line 168 "/home/stein/Documentos/Semestres/Semestre2019-1/Compiladores/Compiladores2019-1/Proyectos/ProyectoTemporal/Proyecto3/src/main/byaccj/Parser.y"
-{yyval = val_peek(0);}
-break;
-case 64:
 //#line 171 "/home/stein/Documentos/Semestres/Semestre2019-1/Compiladores/Compiladores2019-1/Proyectos/ProyectoTemporal/Proyecto3/src/main/byaccj/Parser.y"
 {yyval = val_peek(0);}
 break;
+case 64:
+//#line 174 "/home/stein/Documentos/Semestres/Semestre2019-1/Compiladores/Compiladores2019-1/Proyectos/ProyectoTemporal/Proyecto3/src/main/byaccj/Parser.y"
+{yyval = val_peek(0);}
+break;
 case 65:
-//#line 172 "/home/stein/Documentos/Semestres/Semestre2019-1/Compiladores/Compiladores2019-1/Proyectos/ProyectoTemporal/Proyecto3/src/main/byaccj/Parser.y"
+//#line 175 "/home/stein/Documentos/Semestres/Semestre2019-1/Compiladores/Compiladores2019-1/Proyectos/ProyectoTemporal/Proyecto3/src/main/byaccj/Parser.y"
 {}
 break;
 case 66:
-//#line 176 "/home/stein/Documentos/Semestres/Semestre2019-1/Compiladores/Compiladores2019-1/Proyectos/ProyectoTemporal/Proyecto3/src/main/byaccj/Parser.y"
-{yyval = val_peek(0);}
-break;
-case 67:
-//#line 177 "/home/stein/Documentos/Semestres/Semestre2019-1/Compiladores/Compiladores2019-1/Proyectos/ProyectoTemporal/Proyecto3/src/main/byaccj/Parser.y"
-{yyval = val_peek(0);}
-break;
-case 68:
-//#line 178 "/home/stein/Documentos/Semestres/Semestre2019-1/Compiladores/Compiladores2019-1/Proyectos/ProyectoTemporal/Proyecto3/src/main/byaccj/Parser.y"
-{yyval = val_peek(0);}
-break;
-case 69:
 //#line 179 "/home/stein/Documentos/Semestres/Semestre2019-1/Compiladores/Compiladores2019-1/Proyectos/ProyectoTemporal/Proyecto3/src/main/byaccj/Parser.y"
 {yyval = val_peek(0);}
 break;
-case 70:
+case 67:
 //#line 180 "/home/stein/Documentos/Semestres/Semestre2019-1/Compiladores/Compiladores2019-1/Proyectos/ProyectoTemporal/Proyecto3/src/main/byaccj/Parser.y"
+{yyval = val_peek(0);}
+break;
+case 68:
+//#line 181 "/home/stein/Documentos/Semestres/Semestre2019-1/Compiladores/Compiladores2019-1/Proyectos/ProyectoTemporal/Proyecto3/src/main/byaccj/Parser.y"
+{yyval = val_peek(0);}
+break;
+case 69:
+//#line 182 "/home/stein/Documentos/Semestres/Semestre2019-1/Compiladores/Compiladores2019-1/Proyectos/ProyectoTemporal/Proyecto3/src/main/byaccj/Parser.y"
+{yyval = val_peek(0);}
+break;
+case 70:
+//#line 183 "/home/stein/Documentos/Semestres/Semestre2019-1/Compiladores/Compiladores2019-1/Proyectos/ProyectoTemporal/Proyecto3/src/main/byaccj/Parser.y"
 {yyval = val_peek(0) ;}
 break;
 case 71:
-//#line 181 "/home/stein/Documentos/Semestres/Semestre2019-1/Compiladores/Compiladores2019-1/Proyectos/ProyectoTemporal/Proyecto3/src/main/byaccj/Parser.y"
+//#line 184 "/home/stein/Documentos/Semestres/Semestre2019-1/Compiladores/Compiladores2019-1/Proyectos/ProyectoTemporal/Proyecto3/src/main/byaccj/Parser.y"
 {}
 break;
-//#line 841 "Parser.java"
+//#line 844 "Parser.java"
 //########## END OF USER-SUPPLIED ACTIONS ##########
     }//switch
     //#### Now let's reduce... ####

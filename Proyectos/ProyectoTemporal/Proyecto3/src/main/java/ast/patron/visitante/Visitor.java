@@ -24,7 +24,7 @@ public interface Visitor
     public void visit(WhileNodo n);
     public void visit(IdentificadorHoja n);
     //public void visit(NotNodo n);
-    
+    public void visit(Compuesto n ); 
     public void visit(PrintNodo n);
     public void visit(MayorIgualNodo n);
     public void visit(MenorIgualNodo n);

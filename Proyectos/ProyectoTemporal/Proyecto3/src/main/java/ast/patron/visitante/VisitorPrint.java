@@ -396,6 +396,25 @@ public class VisitorPrint implements Visitor {
         if (n instanceof PrintNodo) {
             visit((PrintNodo) n);
         }
+        if (n instanceof Compuesto) {
+            visit((Compuesto) n);
+        }
+    }
+
+    public void visit(Compuesto n) {
+        System.out.print("[stmt] {");
+        Iterator<Nodo> hijos = n.getHijos().iterator();
+        boolean primerNodo = true; 
+        while (hijos.hasNext()) {
+            if(primerNodo ==true){
+                primerNodo = false; 
+            }else {
+                System.out.println(";");
+            }
+            visit(hijos.next());
+             
+        }
+        System.out.println("}");
     }
 
 }
