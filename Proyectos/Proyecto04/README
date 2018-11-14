@@ -1,0 +1,6 @@
+
+Pasos Para Compilar el Proyecto 
+
+
+mvn clean initialize compile 
+mvn exec:java -Dexec.mainClass="ast.Compilador"
