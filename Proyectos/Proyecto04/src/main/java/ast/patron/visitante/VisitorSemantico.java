@@ -10,7 +10,7 @@ public class VisitorSemantico implements Visitor {
     private Nodo arbol;
     private final String MSGERROROPERACIONUNARIA = "[ERROR] OPERADOR \"%s\" NO DEFINIDO para el tipo: %s. \n";
     private final String MSGERROROPERACION = "[ERROR] OPERADOR \"%s\" NO DEFINIDO para los tipos: %s,%s. \n";
-    private final String MSGERRORIDENTIFICADOR = "[ERROR] IDENTIFICADOR \"%s\" del tipo :%i ,no acepta elementos del tipo ,%i. \n";
+    private final String MSGERRORIDENTIFICADOR = "[ERROR] IDENTIFICADOR \"%s\" del tipo :%s ,no acepta elementos del tipo ,%s. \n";
     // eSTE ES OPCIONAL Y SOLO SIRVE PARA TENER MEJOR CONTROL SOBRE LO QUE ESTOY
     // RECONOCIENDO DEGUG
     private final VisitorPrint print = new VisitorPrint();
@@ -502,7 +502,7 @@ public class VisitorSemantico implements Visitor {
             tablaSimbolos.Insert(n.getPrimerHijo().getNombre(), tipo);
         }else {
             if(lookUp != tipo){
-                System.out.printf(MSGERRORIDENTIFICADOR,n.getPrimerHijo().getNombre(), lookUp,tipo);
+                System.out.printf(MSGERRORIDENTIFICADOR,n.getPrimerHijo().getNombre(), ""+lookUp,""+tipo);
                 System.exit(1);
             }
         }
