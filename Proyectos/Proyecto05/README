@@ -4,3 +4,11 @@ Pasos Para Compilar el Proyecto
 
 mvn clean initialize compile 
 mvn exec:java -Dexec.mainClass="ast.Compilador"
+
+Anzures Reyes Miguel Alejandro 
+Montaño Bautista Marco Alan 
+
+Proyecto 05 de Compiladores 
+
+La salida del archivo generado por el compilador se encuentra en la carpeta out/fichero.asm
+ 

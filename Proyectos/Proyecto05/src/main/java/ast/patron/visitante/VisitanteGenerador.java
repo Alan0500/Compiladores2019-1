@@ -25,7 +25,6 @@ public class VisitanteGenerador implements Visitor {
         String objetivo = reg.getObjetivoREGISTRO();
         String[] siguientes = reg.getNsiguientes(1);
         int i = n.getValor().ival;
-        System.out.println("li " + siguientes[0] + "," + i);
         archivo = archivo + "li " + siguientes[0] + "," + i+"\n";
     }
 
@@ -43,7 +42,6 @@ public class VisitanteGenerador implements Visitor {
         reg.setObjetivo(siguientes[1]);
         hd.accept(this);
         String opcode = "add";
-        System.out.println(opcode + " " + objetivo + ", " + siguientes[0] + ", " + siguientes[1]);
         
         archivo = archivo + opcode + " " + objetivo + ", " + siguientes[0] + ", " + siguientes[1]+"\n";
     }
@@ -62,7 +60,6 @@ public class VisitanteGenerador implements Visitor {
         reg.setObjetivo(siguientes[1]);
         hd.accept(this);
         String opcode = "sub";
-        System.out.println(opcode + " " + objetivo + ", " + siguientes[0] + ", " + siguientes[1]);
         archivo = archivo + opcode + " " + objetivo + ", " + siguientes[0] + ", " + siguientes[1]+"\n";
     }
 
@@ -79,7 +76,6 @@ public class VisitanteGenerador implements Visitor {
         reg.setObjetivo(siguientes[1]);
         hd.accept(this);
         String opcode = "mul";
-        System.out.println(opcode + " " + objetivo + ", " + siguientes[0] + ", " + siguientes[1]);
         archivo = archivo + opcode + " " + objetivo + ", " + siguientes[0] + ", " + siguientes[1]+"\n";
     }
 
@@ -97,7 +93,6 @@ public class VisitanteGenerador implements Visitor {
         reg.setObjetivo(siguientes[1]);
         hd.accept(this);
         String opcode = "div";
-        System.out.println(opcode + " " + objetivo + ", " + siguientes[0] + ", " + siguientes[1]);
         archivo = archivo + opcode + " " + objetivo + ", " + siguientes[0] + ", " + siguientes[1]+"\n";
     }
 
@@ -114,7 +109,6 @@ public class VisitanteGenerador implements Visitor {
         reg.setObjetivo(siguientes[1]);
         hd.accept(this);
         String opcode = "div";
-        System.out.println(opcode + " " + objetivo + ", " + siguientes[0] + ", " + siguientes[1]);
         archivo = archivo + opcode + " " + objetivo + ", " + siguientes[0] + ", " + siguientes[1]+"\n";
     }
 
@@ -159,10 +153,10 @@ public class VisitanteGenerador implements Visitor {
     }
 
     public void visit(ModuloNodo n) {
+
     }
 
     public void visit(StringHoja n) {
-        System.out.printf(".data\n %s .asciiz \"%s\" \n.text\n", reg.siguienteCadenaTemporal(), n.getValor().sval);
         archivo += String.format(".data\n %s .asciiz \"%s\" \n.text\n", reg.siguienteCadenaTemporal(), n.getValor().sval);
     }
 
@@ -173,10 +167,8 @@ public class VisitanteGenerador implements Visitor {
         String objetivo = reg.getObjetivoREGISTRO();
         String[] siguientes = reg.getNsiguientes(1);
         int i = n.getValor().ival;
-        System.out.println("li " + siguientes[0] + "," + i);
         String valor = n.getValor().bval ? "True" : "False";
-        System.out.printf("lw %s , %s", siguientes[0], valor);
-        archivo = archivo +  String.format("lw %s , %s \n", siguientes[0], valor);
+        archivo = archivo + "li " + siguientes[0] + "," + i + String.format("lw %s , %s \n", siguientes[0], valor);
     }
 
     public void visit(AndNodo n) {
@@ -244,7 +236,6 @@ public class VisitanteGenerador implements Visitor {
         // n.getPrimerHijo().accept(this);
         niega(n);
         int i = n.getPrimerHijo().getValor().ival;
-        System.out.println("li " + siguientes[0] + "," + i);
         archivo += "li " + siguientes[0] + "," + i+"\n";
     }
     /**
