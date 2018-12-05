@@ -8,10 +8,10 @@
 %token <dval> NUMERO  /* a number */
 
 %type <dval> exp fact term MENOS
-/**
+
 %right '-' '+'
 %right  '*' '/'
-*/
+
       
 %%
 
