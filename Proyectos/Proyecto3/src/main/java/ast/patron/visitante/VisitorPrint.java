@@ -26,7 +26,7 @@ public class VisitorPrint implements Visitor {
             }else {
                 System.out.print(",");
             }
-            visit(hijos.next());
+            hijos.next().accept(this);
              
         }
         System.out.print("}");
@@ -42,7 +42,7 @@ public class VisitorPrint implements Visitor {
             }else {
                 System.out.print(",");
             }
-            visit(hijos.next());
+            hijos.next().accept(this);
              
         }
         System.out.print("}");
@@ -58,7 +58,7 @@ public class VisitorPrint implements Visitor {
             }else {
                 System.out.print(",");
             }
-            visit(hijos.next());
+            hijos.next().accept(this);
              
         }
         System.out.print("}");
@@ -74,7 +74,7 @@ public class VisitorPrint implements Visitor {
             }else {
                 System.out.print(",");
             }
-            visit(hijos.next());
+            hijos.next().accept(this);
              
         }
         System.out.print("}");
@@ -91,7 +91,7 @@ public class VisitorPrint implements Visitor {
             }else {
                 System.out.print(",");
             }
-            visit(hijos.next());
+            hijos.next().accept(this);
              
         }
         System.out.print("}");
@@ -108,7 +108,7 @@ public class VisitorPrint implements Visitor {
             }else {
                 System.out.print(",");
             }
-            visit(hijos.next());
+            hijos.next().accept(this);
              
         }
         System.out.print("}");
@@ -124,7 +124,7 @@ public class VisitorPrint implements Visitor {
             }else {
                 System.out.print(",");
             }
-            visit(hijos.next());
+            hijos.next().accept(this);
              
         }
         System.out.print("}");
@@ -141,7 +141,7 @@ public class VisitorPrint implements Visitor {
             }else {
                 System.out.print(",");
             }
-            visit(hijos.next());
+            hijos.next().accept(this);
              
         }
         System.out.print("}");
@@ -157,7 +157,7 @@ public class VisitorPrint implements Visitor {
             }else {
                 System.out.print(",");
             }
-            visit(hijos.next());
+            hijos.next().accept(this);
              
         }
         System.out.print("}");
@@ -186,7 +186,7 @@ public class VisitorPrint implements Visitor {
             }else {
                 System.out.print(",");
             }
-            visit(hijos.next());
+            hijos.next().accept(this);
              
         }
         System.out.print("}");
@@ -203,7 +203,7 @@ public class VisitorPrint implements Visitor {
             }else {
                 System.out.print(",");
             }
-            visit(hijos.next());
+            hijos.next().accept(this);
              
         }
         System.out.print("}");
@@ -220,7 +220,7 @@ public class VisitorPrint implements Visitor {
             }else {
                 System.out.print(",");
             }
-            visit(hijos.next());
+            hijos.next().accept(this);
              
         }
         System.out.print("}");
@@ -238,7 +238,7 @@ public class VisitorPrint implements Visitor {
             }else {
                 System.out.print(",");
             }
-            visit(hijos.next());
+            hijos.next().accept(this);
              
         }
         System.out.print("}");
@@ -255,7 +255,7 @@ public class VisitorPrint implements Visitor {
             }else {
                 System.out.print(",");
             }
-            visit(hijos.next());
+            hijos.next().accept(this);
              
         }
         System.out.print("}");
@@ -272,7 +272,7 @@ public class VisitorPrint implements Visitor {
             }else {
                 System.out.print(",");
             }
-            visit(hijos.next());
+            hijos.next().accept(this);
              
         }
         System.out.print("}");
@@ -292,17 +292,17 @@ public class VisitorPrint implements Visitor {
     }
     public void visit(IfNodo n) {        
         System.out.print("[Nodo IF] condicion: {");
-        visit(n.obtenerCondicion());
+        n.obtenerCondicion().accept(this);
         System.out.print("} then:{");
-        visit(n.obtenerThen());
+        n.obtenerThen().accept(this);
         System.out.print("}");
     }
 
     public void visit(WhileNodo n) {               
         System.out.print("[Nodo WHILE] condicion: {");
-        visit(n.obtenerCondicion());
+        n.obtenerCondicion().accept(this);
         System.out.print("} then:{");
-        visit(n.obtenerThen());
+        n.obtenerThen().accept(this);
         System.out.print("}");
     }
     public void visit(IdentificadorHoja n) {
@@ -312,107 +312,10 @@ public class VisitorPrint implements Visitor {
 
     public void visit(PrintNodo n) {
         System.out.print("[Nodo PRINT] valor:");
-        visit(n.obtenerValor());
+        n.obtenerValor().accept(this);
     }
 
-    public void visit(Nodo n) {
-        if (n instanceof IntHoja) {
-            visit((IntHoja) n);
-        }
-        if (n instanceof DoubleHoja) {
-            visit((DoubleHoja) n);
-        }
-        if (n instanceof StringHoja) {
-            visit((StringHoja) n);
-        }
-        if (n instanceof AddNodo) {
-            visit((AddNodo) n);
-        }
-        if (n instanceof AndNodo) {
-            visit((AndNodo) n);
-        }
-        if (n instanceof BooleanHoja) {
-            visit((BooleanHoja) n);
-        }
-        if (n instanceof DiffNodo) {
-            visit((DiffNodo) n);
-        }
-        if (n instanceof DivEnteraNodo) {
-            visit((DivEnteraNodo) n);
-        }
-        if (n instanceof DosPuntosHoja) {
-            visit((DosPuntosHoja) n);
-        }
-        if (n instanceof DivNodo) {
-            visit((DivNodo) n);
-        }
-        if (n instanceof EqualsNodo) {
-            visit((EqualsNodo) n);
-        }
-        if (n instanceof IfElseNodo) {
-            visit((IfElseNodo) n);
-        }
-        if (n instanceof IgualNodo) {
-            visit((IgualNodo) n);
-        }
-        if (n instanceof MayorIgualNodo) {
-            visit((MayorIgualNodo) n);
-        }
-        if (n instanceof MenorIgualNodo) {
-            visit((MenorIgualNodo) n);
-        }
-        if (n instanceof MenorNodo) {
-            visit((MenorNodo) n);
-        }
-        if (n instanceof MayorNodo) {
-            visit((MayorNodo) n);
-        }
-        if (n instanceof ModuloNodo) {
-            visit((ModuloNodo) n);
-        }
-        if (n instanceof MultNodo) {
-            visit((MultNodo) n);
-        }
-        if (n instanceof OrNodo) {
-            visit((OrNodo) n);
-        }
-        if (n instanceof PDerechoHoja) {
-            visit((PDerechoHoja) n);
-        }
-        if (n instanceof PIzquierdoHoja) {
-            visit((PIzquierdoHoja) n);
-        }
-        if (n instanceof RestNodo) {
-            visit((RestNodo) n);
-        }
-        if (n instanceof IfNodo) {
-            visit((IfNodo) n);
-        }
-        if (n instanceof IfElseNodo) {
-            visit((IfElseNodo) n);
-        }
-        if (n instanceof WhileNodo) {
-            visit((WhileNodo) n);
-        }
-        if (n instanceof IdentificadorHoja) {
-            visit((IdentificadorHoja) n);
-        }
-        if (n instanceof PrintNodo) {
-            visit((PrintNodo) n);
-        }
-        if (n instanceof NodoCompuesto) {
-            visit((NodoCompuesto) n);
-        }
-        if (n instanceof NodoPositivo) {
-            visit((NodoPositivo) n);
-        }
-        if (n instanceof NodoNegativo) {
-            visit((NodoNegativo) n);
-        }
-        if (n instanceof NotNodo) {
-            visit((NotNodo) n);
-        }
-    }
+    
 
     public void visit(NodoCompuesto n) {
         System.out.print("\n");
@@ -425,37 +328,40 @@ public class VisitorPrint implements Visitor {
             }else {
                 System.out.println(";");
             }
-            visit(hijos.next());  
+            hijos.next().accept(this);  
         }
     }
 
     public void visit(NotNodo n) {
         System.out.print("[Nodo NOT] valor: {");
-        visit(n.obtenerValor());     
+        n.obtenerValor().accept(this);     
         System.out.print("}");   
 
     }
 
     public void visit(NodoPositivo n) {
         System.out.print("[Nodo POSITIVO] valor: {");
-        visit(n.obtenerValor());     
+        n.obtenerValor().accept(this);       
         System.out.print("}");
 
     }
 
     public void visit(NodoNegativo n) {
         System.out.print("[Nodo NEGATIVO] valor: {");
-        visit(n.obtenerValor());     
+        n.obtenerValor().accept(this);      
         System.out.print("}");
 
     }
 
     public void visit(PowNodo n) {
         System.out.print("[Nodo Potencia] base: {");
-        visit(n.getPrimerHijo());
+        n.getPrimerHijo().accept(this);
         System.out.print("} exponente: {");
-        visit(n.getUltimoHijo());
+        n.getUltimoHijo().accept(this);
         System.out.print("}");
     }
 
+    public void visit(Nodo n ){} 
+    public void visit(Hoja n){}
+    public void visit(NodoBinario n ){}
 }
