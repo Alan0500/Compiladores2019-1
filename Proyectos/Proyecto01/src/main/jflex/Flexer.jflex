@@ -22,7 +22,6 @@ COMMENT = #.*
 ID_PYTHON = ([:jletter:]|_) ([:jletter:]|[:jletterdigit:]|_)*
 %state ESPACIOS
 %%
-\n     {  yybegin(ESPACIOS);  }
 {FLOAT} { return "FLOAT ("+yytext()+")"; }
 {RESERVED_WORD} { return "RESERVADA("+yytext()+")"; }
 {BOOLEAN}     { return "BOOLEAN("+yytext()+")"; }
@@ -32,30 +31,29 @@ ID_PYTHON = ([:jletter:]|_) ([:jletter:]|[:jletterdigit:]|_)*
 {ID_PYTHON}    { return "ID_PYTHON("+yytext() + ")"; }
 {COMMENT}     { return "COMMENT( "+yytext() + ")"; }
 {OPERADOR}    { return "OPERADOR("+yytext()+")"; }
+
 " "           {}
 ("("|")")       {}
+\n     { yybegin(ESPACIOS); return "SALTO\n"; }
 <ESPACIOS> {
-(" ")*     {
-              int espacios = yylength() ;
+(" ")*    {
+              int espacios =  yytext().length() ;
               yybegin(YYINITIAL);
               String resultado = controlador.representa(espacios,yyline);
               if(resultado==""){
-                  return "SALTO\n";
+                return "" ;
               }
-
-              return "SALTO\n"+(resultado+"("+espacios+")");
+              return (resultado+"("+espacios+")");
               }
 (\t|" ")+     {
                 int espacios = yytext().length();
                 yybegin(YYINITIAL);
                 String resultado = controlador.representa(espacios,yyline);
                 if(resultado==""){
-                  return "\n";
+                  return ""; 
                 }
-                return "SALTO\n"+(resultado+"("+espacios+")");
-                }
-
-
+                return (resultado+"("+espacios+")");
+            }
 } 
 .             { throw new RuntimeException("Error en la linea: " + yyline); }
 <<EOF>>       {
