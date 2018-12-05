@@ -4,7 +4,6 @@ import ast.patron.compuesto.*;
 public interface Visitor
 {
     public void visit(IntHoja n);
-    public void visit(Nodo n);
     public void visit(AddNodo n);    
     public void visit(RestNodo n);
     public void visit(MultNodo n);
@@ -36,5 +35,7 @@ public interface Visitor
     public void visit(NodoPositivo n);
     public void visit(NodoNegativo n);
     public void visit(PowNodo n); 
-
+    public void visit(Nodo n ); 
+    public void visit(Hoja n); 
+    public void visit(NodoBinario n ); 
 }
