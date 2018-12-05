@@ -1,0 +1,123 @@
+REGLAS DEL SISTEMA DE TIPOS QUE ESTAN IMPLEMENTADAS EN EL COMPILADOR
+
+
+tipo        valor               
+Booleanos     1          
+Enteros       2      
+Reales        3      
+Cadenas       4
+Error         5
+
+SUMA            Booleanos Enteros  Reales  Cadenas  Error
+Booleanos           0        0       0       4        0  
+Enteros             0        2       3       4        0  
+Reales              0        3       3       4        0  
+Cadenas             4        4       4       4        0  
+Error               0        0       0       0        0  
+     
+RESTA           Booleanos Enteros  Reales  Cadenas  Error
+Booleanos           0        0       0       0        0  
+Enteros             0        2       3       0        0  
+Reales              0        3       3       0        0  
+Cadenas             0        0       0       0        0  
+Error               0        0       0       0        0  
+     
+MULTIPLICACION  Booleanos Enteros  Reales  Cadenas  Error
+Booleanos           0        0       0       0        0  
+Enteros             0        2       3       0        0  
+Reales              0        3       3       0        0  
+Cadenas             0        0       0       0        0  
+Error               0        0       0       0        0  
+     
+DIVISION ENTERA Booleanos Enteros  Reales  Cadenas  Error
+Booleanos           0        0       0       0        0  
+Enteros             0        2       2       0        0  
+Reales              0        2       2       0        0  
+Cadenas             0        0       0       0        0  
+Error               0        0       0       0        0  
+     
+     
+DIVISION        Booleanos Enteros  Reales  Cadenas  Error
+Booleanos           0        0       0       0        0  
+Enteros             0        2       3       0        0  
+Reales              0        3       3       0        0  
+Cadenas             0        0       0       0        0  
+Error               0        0       0       0        0  
+     
+AND             Booleanos Enteros  Reales  Cadenas  Error   
+Booleanos           1        0       0       0        0    
+Enteros             0        0       0       0        0    
+Reales              0        0       0       0        0    
+Cadenas             0        0       0       0        0    
+Error               0        0       0       0        0    
+        
+     
+OR             Booleanos Enteros  Reales  Cadenas   Error 
+Booleanos           1        0       0       0        0   
+Enteros             0        0       0       0        0  
+Reales              0        0       0       0        0  
+Cadenas             0        0       0       0        0  
+Error               0        0       0       0        0   
+     
+     
+NOT             Booleanos Enteros  Reales  Cadenas Error 
+NOT                 1        2       3       0       0  
+
+     
+     
+DIFF            Booleanos Enteros  Reales  Cadenas  Error
+Booleanos           1        0       0       0        0  
+Enteros             0        1       1       0        0  
+Reales              0        1       1       0        0  
+Cadenas             0        0       0       1        0  
+Error               0        0       0       0        0  
+     
+     
+MAYORIGUAL      Booleanos Enteros  Reales  Cadenas  Error
+Booleanos           0        0       0       0        0  
+Enteros             0        1       1       0        0  
+Reales              0        1       1       0        0  
+Cadenas             0        0       0       0        0  
+Error               0        0       0       0        0  
+
+MENORGUAL       Booleanos Enteros  Reales  Cadenas  Error
+Booleanos           0        0       0       0        0  
+Enteros             0        1       1       0        0  
+Reales              0        1       1       0        0  
+Cadenas             0        0       0       0        0  
+Error               0        0       0       0        0  
+
+MAYOR           Booleanos Enteros  Reales  Cadenas  Error
+Booleanos           0        0       0       0        0  
+Enteros             0        1       1       0        0  
+Reales              0        1       1       0        0  
+Cadenas             0        0       0       0        0  
+Error               0        0       0       0        0  
+
+MENOR           Booleanos Enteros  Reales  Cadenas  Error
+Booleanos           0        0       0       0        0  
+Enteros             0        1       1       0        0  
+Reales              0        1       1       0        0  
+Cadenas             0        0       0       0        0  
+Error               0        0       0       0        0  
+     
+POW             Booleanos Enteros  Reales  Cadenas  Error
+Booleanos           0        0       0       0        0  
+Enteros             0        2       3       0        0  
+Reales              0        3       3       0        0  
+Cadenas             0        0       0       0        0  
+Error               0        0       0       0        0  
+    
+IGUAL           Booleanos Enteros  Reales  Cadenas  Error
+Booleanos           1        0       0       0        0  
+Enteros             0        1       1       0        0  
+Reales              0        1       1       0        0  
+Cadenas             0        0       0       1        0  
+Error               0        0       0       0        0  
+
+MODULO          Booleanos Enteros  Reales  Cadenas  Error
+Booleanos           0        0       0       0        0  
+Enteros             0        1       1       0        0  
+Reales              0        1       1       0        0  
+Cadenas             0        0       0       0        0  
+Error               0        0       0       0        0  
