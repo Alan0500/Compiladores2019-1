@@ -11,4 +11,10 @@ Montaño Bautista Marco Alan
 Proyecto 05 de Compiladores 
 
 La salida del archivo generado por el compilador se encuentra en la carpeta out/fichero.asm
+
+Para ejecutar el programa generado tener instalado un emulador de mips
+>spim
+>load "'fichero'.asm"
+>run
  
+con fichero el nombre del archivo que se compilo pero en lugar de la terminacion .p es .asm
