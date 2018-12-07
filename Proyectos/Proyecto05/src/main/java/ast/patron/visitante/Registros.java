@@ -84,7 +84,10 @@ public class Registros {
         stringTemporal++ ; 
         return aux;
 	}
-
+    public String cadenaTemporal() {
+        String aux = stringsTemporales.get(stringTemporal-1);
+        return aux;
+	}
 	public String siguienteEtiquetaIguales() {
         String aux = "iguales"+igualesTemporal; 
         return aux;

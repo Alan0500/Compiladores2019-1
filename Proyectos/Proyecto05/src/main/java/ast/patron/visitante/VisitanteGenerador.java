@@ -7,14 +7,11 @@ import java.util.Iterator;
 public class VisitanteGenerador implements Visitor {
     Registros reg = new Registros();
     TablaSimbolos simbolos;
-    public static String archivo ; 
-    public VisitanteGenerador(TablaSimbolos simbolos ) {
+    public static String archivo;
+
+    public VisitanteGenerador(TablaSimbolos simbolos) {
         this.simbolos = simbolos;
-        this.archivo = ".data\n"+
-                        "True : .word 1\n "+
-                        "false : .word 0\n"+
-                        ".text\n"+
-                        "main: \n";        
+        this.archivo = ".data\n" + "True : .word 1\n " + "false : .word 0\n" + ".text\n" + "main: \n";
     }
 
     public void visit(DiffNodo n) {
@@ -25,7 +22,7 @@ public class VisitanteGenerador implements Visitor {
         String objetivo = reg.getObjetivoREGISTRO();
         String[] siguientes = reg.getNsiguientes(1);
         int i = n.getValor().ival;
-        archivo = archivo + "li " + siguientes[0] + "," + i+"\n";
+        archivo = archivo + "li " + siguientes[0] + "," + i + "\n";
     }
 
     public void visit(AddNodo n) {
@@ -42,8 +39,8 @@ public class VisitanteGenerador implements Visitor {
         reg.setObjetivo(siguientes[1]);
         hd.accept(this);
         String opcode = "add";
-        
-        archivo = archivo + opcode + " " + objetivo + ", " + siguientes[0] + ", " + siguientes[1]+"\n";
+
+        archivo = archivo + opcode + " " + objetivo + ", " + siguientes[0] + ", " + siguientes[1] + "\n";
     }
 
     public void visit(RestNodo n) {
@@ -60,7 +57,7 @@ public class VisitanteGenerador implements Visitor {
         reg.setObjetivo(siguientes[1]);
         hd.accept(this);
         String opcode = "sub";
-        archivo = archivo + opcode + " " + objetivo + ", " + siguientes[0] + ", " + siguientes[1]+"\n";
+        archivo = archivo + opcode + " " + objetivo + ", " + siguientes[0] + ", " + siguientes[1] + "\n";
     }
 
     public void visit(MultNodo n) {
@@ -76,9 +73,8 @@ public class VisitanteGenerador implements Visitor {
         reg.setObjetivo(siguientes[1]);
         hd.accept(this);
         String opcode = "mul";
-        archivo = archivo + opcode + " " + objetivo + ", " + siguientes[0] + ", " + siguientes[1]+"\n";
+        archivo = archivo + opcode + " " + objetivo + ", " + siguientes[0] + ", " + siguientes[1] + "\n";
     }
-
 
     public void visit(DivNodo n) {
         Nodo hi = n.getPrimerHijo();
@@ -93,7 +89,7 @@ public class VisitanteGenerador implements Visitor {
         reg.setObjetivo(siguientes[1]);
         hd.accept(this);
         String opcode = "div";
-        archivo = archivo + opcode + " " + objetivo + ", " + siguientes[0] + ", " + siguientes[1]+"\n";
+        archivo = archivo + opcode + " " + objetivo + ", " + siguientes[0] + ", " + siguientes[1] + "\n";
     }
 
     public void visit(DivEnteraNodo n) {
@@ -109,7 +105,7 @@ public class VisitanteGenerador implements Visitor {
         reg.setObjetivo(siguientes[1]);
         hd.accept(this);
         String opcode = "div";
-        archivo = archivo + opcode + " " + objetivo + ", " + siguientes[0] + ", " + siguientes[1]+"\n";
+        archivo = archivo + opcode + " " + objetivo + ", " + siguientes[0] + ", " + siguientes[1] + "\n";
     }
 
     public void visit(MayorNodo n) {
@@ -123,7 +119,7 @@ public class VisitanteGenerador implements Visitor {
         String[] siguientes = reg.getNsiguientesD(1);
         double i = n.getValor().dval;
         System.out.println("li.d " + siguientes[0] + "," + i);
-        archivo = archivo + "li.d " + siguientes[0] + "," + i+"\n";
+        archivo = archivo + "li.d " + siguientes[0] + "," + i + "\n";
     }
 
     public void visit(IgualNodo n) {
@@ -148,7 +144,7 @@ public class VisitanteGenerador implements Visitor {
                 reg.siguienteEtiquetaIgualesFIN(), reg.siguienteEtiquetaIgualesFALSE(),
                 reg.siguienteEtiquetaIgualesFIN(), reg.siguienteEtiquetaIgualesFIN());
         System.out.println(opcode);
-        archivo += opcode+"\n";
+        archivo += opcode + "\n";
         reg.igualesTemporal++;
     }
 
@@ -157,7 +153,8 @@ public class VisitanteGenerador implements Visitor {
     }
 
     public void visit(StringHoja n) {
-        archivo += String.format(".data\n %s .asciiz \"%s\" \n.text\n", reg.siguienteCadenaTemporal(), n.getValor().sval);
+        archivo += String.format(".data\n %s: .asciiz \"%s\" \n.text\n", reg.siguienteCadenaTemporal(),
+                n.getValor().sval);
     }
 
     public void visit(IfElseNodo n) {
@@ -200,13 +197,20 @@ public class VisitanteGenerador implements Visitor {
 
     public void visit(PrintNodo n) {
         Nodo hi = n.getPrimerHijo();
-        String objetivo = reg.getObjetivoREGISTRO();
-        String[] siguientes = reg.getNsiguientes(1);
-        // Genero el código del subárbol izquiero
-        reg.setObjetivo(siguientes[0]);
-        hi.accept(this);
-        String code = String.format("move $a0,%s\nli $v0, 1 \nsyscall\n ", siguientes[0]);
-        archivo = archivo + code ; 
+        if (hi instanceof StringHoja) {
+            hi.accept(this);
+            String code = String.format("la $a0,%s\nli $v0, 4 \nsyscall\n ", reg.cadenaTemporal());
+            archivo = archivo + code;
+        } else {
+            String objetivo = reg.getObjetivoREGISTRO();
+            String[] siguientes = reg.getNsiguientes(1);
+            // Genero el código del subárbol izquiero
+            reg.setObjetivo(siguientes[0]);
+            hi.accept(this);
+            String code = String.format("move $a0,%s\nli $v0, 1 \nsyscall\n ", siguientes[0]);
+            archivo = archivo + code;
+        }
+
     }
 
     public void visit(MayorIgualNodo n) {
@@ -236,12 +240,14 @@ public class VisitanteGenerador implements Visitor {
         // n.getPrimerHijo().accept(this);
         niega(n);
         int i = n.getPrimerHijo().getValor().ival;
-        archivo += "li " + siguientes[0] + "," + i+"\n";
+        archivo += "li " + siguientes[0] + "," + i + "\n";
     }
+
     /**
-     * Metodo que niega un entero al encontrarse un nodo negativo 
-     * Caso -4 genera un arbol NodoNegativo (IntHoja 4)
-     * El metodo sirve para eliminar el nodo negativo y no perder el contexto
+     * Metodo que niega un entero al encontrarse un nodo negativo Caso -4 genera un
+     * arbol NodoNegativo (IntHoja 4) El metodo sirve para eliminar el nodo negativo
+     * y no perder el contexto
+     * 
      * @param n
      */
     private void niega(Nodo n) {
@@ -276,7 +282,7 @@ public class VisitanteGenerador implements Visitor {
     public void visit(NodoBinario n) {
     }
 
-    public String archivoCadena(){
+    public String archivoCadena() {
         archivo = archivo + "end: jr $ra";
         return archivo;
     }
